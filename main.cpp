@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		printf("%s, ", argv[i]);
 	}
 
-	if (strcmp(argv[1], "c") == 0 && argc == 4) {
+	if (strcmp(argv[1], "-c") == 0 && argc == 4) {
 		asio::io_service io_service;
 		tcp::socket socket(io_service);
 		boost::system::error_code error;
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 			cnt++;
 		}
 	}
-	else if (strcmp(argv[1], "s") == 0 && argc == 3){
+	else if (strcmp(argv[1], "-s") == 0 && argc == 3){
 		cv::namedWindow("received imate", CV_WINDOW_AUTOSIZE | CV_WINDOW_FREERATIO);
 		asio::io_service io_service;
 		tcp::acceptor acc(io_service, tcp::endpoint(tcp::v4(), atoi(argv[2])));
