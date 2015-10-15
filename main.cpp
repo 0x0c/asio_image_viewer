@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 			std::memcpy(bytes + sizeof(uint32_t), &y, sizeof(uint32_t));
 			std::memcpy(bytes + sizeof(uint32_t) * 2, &image.cols, sizeof(uint32_t));
 			std::memcpy(bytes + sizeof(uint32_t) * 3, &image.rows, sizeof(uint32_t));
-			std::memcpy(bytes + sizeof(uint32_t) * 4, image.data, size);
+			std::memcpy(bytes + sizeof(uint32_t) * 4, image.data, image.total() * image.elemSize());
 
 			std::cout << "send byte : " << size << std::endl;
 			std::cout << "x : " << x << ", y : " << y << ", width : " << image.cols << ", height : " << image.rows << std::endl;
